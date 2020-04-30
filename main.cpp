@@ -5,6 +5,17 @@
 #include<utility>
 #include<numeric>
 using namespace std;
+struct sortiranje{
+    unsigned long long int brracuna1;
+    string ime1;
+    double saldo1;
+};
+bool isort(sortiranje a,sortiranje b)
+{
+    if(a.ime1>b.ime1)
+        return true;
+    return false;
+}
 bool negativan(int a)
 {
     if (a<0)
@@ -119,6 +130,19 @@ int main()
             }
             if(k==0)
              cout<<"Ne postoji taj racun";
+        }
+        else if(izbor==5)
+        {
+            sortiranje polje[brklijenata];
+            for(i=0;i<brklijenata;i++)
+            {
+             polje[i]. brracuna1=brracuna[i];
+             polje[i].ime1=ime[i];
+             polje[i].saldo1=saldo[i];
+            }
+            sort(polje,polje+brklijenata,isort);
+            for(i=0;i<brklijenata;i++)
+            cout<<"Broj racuna: "<<polje[i].brracuna1<<" Ime klijenta:  "<<polje[i].ime1<<" Saldo:  "<<polje[i].saldo1<<endl;
         }
 }
     return 0;
