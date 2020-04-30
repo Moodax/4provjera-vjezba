@@ -17,6 +17,19 @@ bool tekuci(unsigned long long int a)
         return true;
     return false;
 }
+bool kaj(string ime[],int brklijenata,string unoss,unsigned long long int brracuna[],double saldo[])
+{
+    int i,bo=0;
+    for(i=0;i<brklijenata;i++)
+        if(ime[i]==unoss)
+        {
+            cout<<"Broj racuna: "<<brracuna[i]<<" Ime klijenta:  "<<ime[i]<<" Saldo:  "<<saldo[i]<<endl;
+            bo++;
+        }
+    if(bo>0)
+        return true;
+    return false;
+}
 int main()
 {
     int brklijenata=0,i;
@@ -70,6 +83,19 @@ int main()
         cout<<count_if(saldo,saldo+brklijenata,negativan)<<" racuna ima negativan saldo"<<endl;;
         cout<<count_if(brracuna,brracuna+brklijenata,tekuci)<<" gradana ima tekuci racun"<<endl;
         system("pause");
+        }
+        else if(izbor==3)
+        {
+            cout<<"Unesite ime: ";
+            cin.ignore();
+            getline(cin,unoss);
+          if(kaj(ime,brklijenata,unoss,brracuna,saldo))
+          {
+              for(i=0;i<brklijenata;i++)
+              cout<<"Broj racuna: "<<brracuna[i]<<" Ime klijenta:  "<<ime[i]<<" Saldo:  "<<saldo[i]<<endl;
+          }
+          else
+              cout<<"Nema takvih racuna"<<endl;
         }
 }
     return 0;
