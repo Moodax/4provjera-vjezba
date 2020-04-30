@@ -32,9 +32,10 @@ bool kaj(string ime[],int brklijenata,string unoss,unsigned long long int brracu
 }
 int main()
 {
-    int brklijenata=0,i;
+    int brklijenata=0,i,j;
     unsigned long long int *brracuna=new unsigned long long int [1000];
     string *ime=new string [1000];
+    unsigned long long int brisi;
     double *saldo=new double[1000];
     unsigned long long int unos;
     string unoss;
@@ -96,6 +97,28 @@ int main()
           }
           else
               cout<<"Nema takvih racuna"<<endl;
+        }
+        else if(izbor==4)
+        {
+            cin>>brisi;
+             int k=0;
+            for(i=0;i<brklijenata;i++)
+            {
+                if(brisi==brracuna[i])
+                {
+                    k++;
+                    for(j=i+1;j<brklijenata;j++)
+                    {
+                        brracuna[j-1]=brracuna[j];
+                        saldo[j-1]=saldo[j];
+                        ime[j-1]=ime[j];
+                    }
+                    brklijenata--;
+                    break;
+                }
+            }
+            if(k==0)
+             cout<<"Ne postoji taj racun";
         }
 }
     return 0;
