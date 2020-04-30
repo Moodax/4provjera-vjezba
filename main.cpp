@@ -5,10 +5,21 @@
 #include<utility>
 #include<numeric>
 using namespace std;
-
+bool negativan(int a)
+{
+    if (a<0)
+        return true;
+    return false;
+}
+bool tekuci(unsigned long long int a)
+{
+    if(a/100000000==32)
+        return true;
+    return false;
+}
 int main()
 {
-    int brklijenata=0;
+    int brklijenata=0,i;
     unsigned long long int *brracuna=new unsigned long long int [1000];
     string *ime=new string [1000];
     double *saldo=new double[1000];
@@ -48,6 +59,18 @@ int main()
         cin>>saldo[brklijenata];
         brklijenata++;
     }
+        else if (izbor==2)
+        {
+        for(i=0;i<brklijenata;i++)
+        {
+            cout<<"Broj racuna: "<<brracuna[i]<<" Ime klijenta:  "<<ime[i]<<" Saldo:  "<<saldo[i]<<endl;
+        }
+        cout<<"Suma svih stanja na racunima iznosi: "<<accumulate(saldo,saldo+brklijenata,0.0)<<endl;
+        cout<<"Najveci saldo ima: "<<ime[max_element(saldo,saldo+brklijenata)-saldo]<<endl;
+        cout<<count_if(saldo,saldo+brklijenata,negativan)<<" racuna ima negativan saldo"<<endl;;
+        cout<<count_if(brracuna,brracuna+brklijenata,tekuci)<<" gradana ima tekuci racun"<<endl;
+        system("pause");
+        }
 }
     return 0;
 }
