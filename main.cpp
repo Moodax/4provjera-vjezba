@@ -144,6 +144,13 @@ int main()
             for(i=0;i<brklijenata;i++)
             cout<<"Broj racuna: "<<polje[i].brracuna1<<" Ime klijenta:  "<<polje[i].ime1<<" Saldo:  "<<polje[i].saldo1<<endl;
         }
+        else if(izbor==7)
+        {
+            cout<<"Hvala sto ste koristili program!"<<endl;
+            return 0;
+        }
+            system("pause");
+            system("CLS");
 }
     return 0;
 }
